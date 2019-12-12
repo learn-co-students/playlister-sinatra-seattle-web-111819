@@ -1,4 +1,4 @@
-<%= "<h2>Successfully updated song.</h2>" if @updated %>
+<%= "<h2>#{flash[:message]}</h2>" if flash[:message] %>
 
 <h2>Song:</h2>
 <p>Name: <%= @song.name %></p>

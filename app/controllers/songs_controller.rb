@@ -14,6 +14,7 @@ class SongsController < ApplicationController
         @artist = Artist.find_or_create_by(params[:artist])
         params[:song][:artist_id] = @artist.id
         @song = Song.create(params[:song])
+        flash[:message] = "Successfully created song."
         redirect to "/songs/#{@song.slug}"
     end
 
@@ -39,7 +40,7 @@ class SongsController < ApplicationController
         @song.update(params[:song])
         @artist = @song.artist
         @genres = @song.genres
-        @updated = true
+        flash[:message] = "Successfully updated song."
         erb :"songs/show"
     end
 
